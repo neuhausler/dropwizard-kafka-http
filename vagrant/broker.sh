@@ -47,5 +47,5 @@ sed 's/zookeeper.connect=localhost:2181/'zookeeper.connect=192.168.22.5:2181'/' 
 sleep 10
 
 cd /vagrant
-mkdir -p log
-java -jar /vagrant/target/dropwizard-kafka-http-0.0.1-SNAPSHOT.jar server kafka-http.yml 1>> /vagrant/logs/stealthly.log 2>> /vagrant/logs/stealthly.log &
+mkdir -p logs
+./gradlew run 1>> /vagrant/logs/stealthly.log 2>> /vagrant/logs/stealthly.log &
