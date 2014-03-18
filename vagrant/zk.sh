@@ -40,18 +40,6 @@ export JAVA_HOME=/usr
 su vagrant -c "touch ~/.bashrc"
 su vagrant -c "echo 'export JAVA_HOME=/usr' >> ~/.bashrc"
 
-cd /tmp
-wget https://archive.apache.org/dist/maven/maven-3/3.1.1/binaries/apache-maven-3.1.1-bin.tar.gz
-mkdir -p /opt/apache
-cd /opt/apache/
-tar -xvf /tmp/apache-maven-3.1.1-bin.tar.gz
-export PATH=/opt/apache/apache-maven-3.1.1/bin:$PATH
-su vagrant -c "echo 'export PATH=/opt/apache/apache-maven-3.1.1/bin:$PATH' >> ~/.bashrc"
-
-cd /vagrant
-mvn clean
-mvn package
-
 /vagrant/vagrant/kafka.sh #install kafka
 
 /opt/apache/kafka/bin/zookeeper-server-start.sh /opt/apache/kafka/config/zookeeper.properties 1>> /tmp/zk.log 2>> /tmp/zk.log &
